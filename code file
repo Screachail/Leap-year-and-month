@@ -12,6 +12,7 @@ def is_year_leap(year):
         return False
 
 def days_in_month(year, month):
+    
     if is_year_leap(year) and month == 2:
         return 29
     elif not is_year_leap(year) and month == 2:
@@ -20,3 +21,12 @@ def days_in_month(year, month):
         return 31
     else:
         return 30
+
+def day_of_year(year, month, day):
+    days = 0
+    while month > 0:
+        days += days_in_month(year, month)
+        month -= 1
+    return days
+    
+print(day_of_year(2000, 12, 31))
